@@ -14,6 +14,7 @@ Python 3 review
 - [Ternary](#ternary)
 - [Copy](#copy)
 - [Built In Functions](#built-in-functions)
+- [Python Classes](#python-classes)
 
 
 =======================
@@ -283,22 +284,81 @@ for k,v in d.items():
 ```
 ### Heap
 
+to create a heap use a list initalized to [] or transform a populated list into a heap by using `heapify()`
+
+```python
+import heapq
+
+heap=[]
+
+#adding to heap
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 2)
+heapq.heappush(heap, 3)
+
+#poping from heap
+heapq.heappop(heap)
+#1
+
+#heap replace
+#pop the smallest item and push a new item
+#more efficient than pop then merge
+#appropriate for fixed-sized heaps
+heapq.heapreplace(heap, 1)
+```
+
+###Priority Queue
+Challenges
+* sort stablility: how do you get two tasks with equal priorities to be returned in order they were originally added
+* tuple comparison breaks for (priority, task) pairs if the priorities are equal and the tasks do not have a default comparison order
+* if the priority of a task changes, how do you move it to a new position in the heap?
+* or if a pending task needs to be deleted, how do you find it and remove it from the queue?
+
+```python
+class PriorityQueue:
+	pq =[]
+	entry_jfinder={}
+	REMOVED=''
+	counter = itertools.count()
+
+	def add_task(task, priority=0):
+		if task in entry_finder:
+			remove_task(task)
+		count = next(counter)
+		entry = [priority, count, task]
+		entry_finder[task] = entry
+		heappush(pq, entry)
+
+	def remove_task(task):
+		entry = entry_finder.pop(task)
+		entry[-1] = REMOVED
+
+	def pop_task():
+		while pq:
+			priority, count, task = heapq(pq)
+			if task is not REMOVED:
+				del entry_finder[task]
+				return task
+		raise KeyError('pop from an empty priority queue')
+
+```
 ## Looping
 
-looping through a sequece position index and value can be retrieved at the same time using enumerate() function
+looping through a sequece position index and value can be retrieved at the same time using `enumerate()` function
 
-looping 2 or more sequences the entries can be paired with the zip() function
+looping 2 or more sequences the entries can be paired with the `zip()` function
 
-looping over a sequence in reverse first specify the sequence in a foward direction and call the reversed function
+looping over a sequence in reverse first specify the sequence in a foward direction and call the `reversed()` function
 
-looping over a sequence in sorted order use the sorted() function, which returns a new list leaving the source unaltered
+looping over a sequence in sorted order use the `sorted()` function, which returns a new list leaving the source unaltered
 
-looping over a large sequence it maybe beneficial to loop over an iterator instead using iter()
+looping over a large sequence it maybe beneficial to loop over an iterator instead using `iter()`
 
 ## Strings
 TODO
 ### Permutation
 ### Combination
+### Regex
 
 ## Algorithms
 
@@ -320,7 +380,20 @@ TODO
 
 ### Quick Sort
 ### Merge Sort
+### Heap Sort
+
+```python
+from heapq import heapush
+from heapq import heappop
+
+def heapsort(iterable):
+	h=[]
+	for value in iterable:
+		heappush(h, value)
+	return [heappop(h) for i in range(len(h))]
+```
 ### Radix Sort
+
 
 ## Lambda
 ## del
@@ -358,3 +431,12 @@ a = True if 'b' in c else False
 ###functools
 
 
+##Python Classes
+###Public 
+###Protected 
+###Private
+###Inheritance
+###Generators
+###Abstract Classes
+###Staticmethod
+###Classmethod
