@@ -4,11 +4,14 @@ Python 3 review
 #Table of Content
 
 - [Data Structures](#data-structures)
+- [Looping](#looping)
 - [Strings](#strings)
 - [Algorithms](#algorithms)
 - [Graphs](#graphs)
 - [Sorting](#sorting)
 - [Lambda](#lambda)
+- [Del](#del)
+- [Ternary](#ternary)
 - [Copy](#copy)
 - [Built In Functions](#built-in-functions)
 
@@ -162,8 +165,7 @@ not stack
 ```
 
 ### Queue
-can use list as a queue
-however not efficient while appends and pops from end are fast insertion or pop form beginning is slow
+can use list as a queue however not efficient while appends and pops from end are fast insertion or pop form beginning is slow
 
 use deque instead
 
@@ -186,14 +188,112 @@ queue.popleft()
 queue.reverse()
 ```
 ### Tuples
+A tuple consists of a number of values separated by commas
 
-### Tree
+```python
+
+t = 123,456,'hi'
+t[0]
+#123
+
+#tuple maybe nested
+u = t, (1,2,3,4)
+u[0]
+(123,456,'hi')
+
+#tuples are immutable
+t[0]=1
+#TypeError 'tuptle' es not support item assignment
+
+#unpack a tuple
+x,y,z=u[0]
+```
 
 ### Set
+A set is an unordered colleciton with no duplicate elements.
+
+basic uses include membership testing, and eliminating duplicates
+
+supports mathematical operations like union, intersection, difference and symmetric difference
+
+```python
+#empty creation
+basket = set()
+
+#non empty creation
+basket = {'apple','orange','mango'}
+
+#membership testing
+'orange' in basket
+#True
+
+#without the comma the set is all the letters of the string
+a = set('abracadabra')
+b = set('alacazam')
+
+a
+#{'a','r','b','c','d'}
+
+#letters in a but not b
+a-b
+
+#letters in either a or b
+a|b
+
+#letters in both a and b
+a&b
+
+#letters in a or b but not both
+a^b
+
+```
 
 ### Dictionary
+key value pair data storage
 
+keys must be immutable and unique
+
+```python
+#empty
+d = {}
+
+#all keys
+#unsorted
+list(d.keys())
+
+#sorted keys
+sorted(d.keys())
+
+#key check
+key in d
+
+#adding an entry
+d['Trump']='Donald'
+
+#deleting an entry
+del d['Trump']
+```
+
+looping through dictionaries key and value can be retrieved at the same time
+
+```python
+d = {'Trump':'Donald', 'Clinton','Hillary'}
+for k,v in d.items():
+	print(k,v)
+```
 ### Heap
+
+## Looping
+
+looping through a sequece position index and value can be retrieved at the same time using enumerate() function
+
+looping 2 or more sequences the entries can be paired with the zip() function
+
+looping over a sequence in reverse first specify the sequence in a foward direction and call the reversed function
+
+looping over a sequence in sorted order use the sorted() function, which returns a new list leaving the source unaltered
+
+looping over a large sequence it maybe beneficial to loop over an iterator instead using iter()
 
 ## Strings
 TODO
@@ -209,6 +309,8 @@ TODO
 
 ## Graphs
 
+### Tree
+TODO
 ### Breath First Search
 ### Depth First Search
 ### Djkstra's
@@ -236,6 +338,13 @@ a
 del a[:]
 a
 #[]
+```
+
+##Ternary
+ternary operator
+```python
+c=['b']
+a = True if 'b' in c else False
 ```
 
 ## Copy
