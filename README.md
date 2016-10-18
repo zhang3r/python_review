@@ -790,6 +790,32 @@ generators are created by using `yield` instead of `return`
 Use NotImplementedError for methods to denote an Abstract Class
 
 ###Python Decorators
+
+Decorators - dynamically alter the functionality of a function, method or class without having to directly use subclasses or change the source code of the function being decorated.
+
+Python Decorators
+```python
+def my_decorator(some_function):
+	def wrapper():
+		print("before")
+		some_function()
+		print("after")
+	return wrapper()
+
+
+from . import my_decorator
+@my_decorator
+def just_some_function():
+	print('hi')
+
+just_some_function()
+
+#before
+#hi
+#after
+
+```
+
 ###Staticmethod
 using the `@staticmethod` decorator to create static methods
 
