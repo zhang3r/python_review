@@ -454,9 +454,103 @@ result = regex.search(string)# anywhere in the string
 ## Graphs
 
 ### Tree
-TODO
+```python
+# Binary Tree impl
+class Node:
+	def __init__(self, data):
+		self.left=None
+		self.right=None
+		self.data=data
+
+>>> n = Node(1)
+>>> p = Node(2)
+>>> q = Node(3)
+>>> n.left = p
+>>> n.right = q
+```
+
 ### Breath First Search
+
+```python
+
+def bfs(graph, start):
+	visted, queue = set(), [start]
+	while queue:
+		vertex = queue.pop(0)
+		if vertex not in visited:
+			visited.add(vertex)
+			queue.extend(graph.neighbors(vertex) - visited)
+	return visited
+
+#paths
+def bfs_paths(graph,start,goal):
+	queue = [(start,[start])]
+	while queue:
+		(vertex,path) = queue.pop(0)
+		for next in graph.neighbors(vertex) - set(path):
+			if next ==goal:
+				yield path+[next]
+			else:
+				queue.append((next,path+[next]))
+
+list(bfs_paths(graph, start, end))
+
+#shortest path
+def shortest_path(graph,start,goal):
+	try:
+		return next(bfs_paths(graph, start, goal))
+	except StopIteration:
+		return None
+shortest_path(graph, start, end)
+
+```
+
+
 ### Depth First Search
+
+```python
+def dfs(graph, start):
+	visted, stack = set(),[start]
+	while stack:
+		vertex = stack.pop()
+		if vertex not in visited:
+			visited.add(vertex)
+			stack.extend(graph.neighbors(vertex) - visited)
+	return visited
+
+#recursive
+def dfs(graph,start, visited=None):
+	if visited is None:
+		visited=set()
+	visited.add(start)
+	for next in graph.neighbors(start)- visited:
+		def(graph, next, visited)
+	return visited
+
+
+#paths
+
+def dfs_paths(graph, start, goal):
+	stack=[(start,[start])]
+	while stack:
+		(vertex,path) = stack.pop()
+		for next in graph.neighbors(vertex) - set(path):
+			if next ==goal:
+				yield path+[next]
+			else:
+				stack.append((next, path+[next]))
+
+list(dfs_paths(graph,start,end))
+
+# recursion
+def dfs_paths(graph, start, goal, path=None):
+	if path is None:
+		path = [start]
+	if start == goal:
+		yield path
+	for next in graph.neighbors(start) - set(path):
+		yield from dfs_paths(graph,next, goal,path+[next])
+```
 ### Djkstra's
 ### A*
 
@@ -605,15 +699,15 @@ a = True if 'b' in c else False
 
 ## Copy
 
-### Deep Copy
-```
+### Shallow Copy
+```python
 import copy
 b=[1,2,3]
 a = copy.copy(b)
 ```
 
-### Shallow Copy
-```
+### Deep Copy
+```python
 import copy
 b=[1,2,3]
 a =  copy.deepcopy(b)
