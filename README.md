@@ -447,9 +447,28 @@ result = regex.search(string)# anywhere in the string
 ## Algorithms
 
 ### Divide and Conquer
+
+
 ### Dynamic Programming
+Dynamic Programming saves previously computed answers so that the algorithm no longer have to recompute it again.
+
+####Top-Down
+
+####Bottom-Up
+
 ### Greedy Algorithm
+Greedy Algorithm always select the best choice available at the moment.
+
 ### Recursion
+Recursion consists of a terminating step and a recursive step.
+
+Return statement can be a combination of Recursive calls
+
+or
+
+a variable can be assigned to the results of a recursive step.
+
+note: each recursive step should be closer to the terminating statement than previous recursive steps.
 
 ## Graphs
 
@@ -761,11 +780,14 @@ class SubClass(MyClass, MyClass1, MyClass2):
 #python will call superclass methods from left to right
 
 ```
+###Diamond Problem
+TODO
 
 ###Generators
 generators are created by using `yield` instead of `return`
 
 ###Abstract Classes
+Use NotImplementedError for methods to denote an Abstract Class
 
 ###Python Decorators
 ###Staticmethod
