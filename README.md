@@ -723,13 +723,56 @@ a = copy.deepcopy(b)
 
 
 ##Python Classes
+
+```python
+class MyClass:
+	def __init__(self):
+		pass
+	def f(self):
+		return 'hello world'
+
+#initialization
+x = MyClass()
+```
+
 ###Public 
+public methods are declared as normal.
+
 ###Protected 
+single underscore for protected
+
 ###Private
+double underscore for private
+
 ###Inheritance
+python supports mutliple inheritance. However python only supports method inheritance. python subclasses inherit only methods
+
+```python
+class SubClass(MyClass):
+	def __init__(self):
+		super.__init__()
+		self.data=1
+
+#mutliple
+class SubClass(MyClass, MyClass1, MyClass2):
+	def __init__(self):
+		super.__init__()
+#python will look at SubClass, MyClass, MyClass1, MyClass2
+#python will call superclass methods from left to right
+
+```
+
 ###Generators
+generators are created by using `yield` instead of `return`
+
 ###Abstract Classes
+
+###Python Decorators
 ###Staticmethod
+using the `@staticmethod` decorator to create static methods
+
 ###Classmethod
+
 ###Mixins
+
 ###Meta Classes
