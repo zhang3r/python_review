@@ -355,10 +355,90 @@ looping over a sequence in sorted order use the `sorted()` function, which retur
 looping over a large sequence it maybe beneficial to loop over an iterator instead using `iter()`
 
 ## Strings
-TODO
+built in string class provides the ability to do complex variable subsitutions and value formatting via the `format()` method. The `Formatter` class in the `string` module allows you to create and customize string formatting behaviors.
+
+```python
+#String formatter
+a ="Some {0} String {1}".format("short", "!")
+"First {0}" # Reference the first positional argument
+"First {}" # implicitly reference the frist position
+"Name: {name}" # References keyward argument name
+"weight in tons {0.weight}" # References the weight attribute of the first argument
+"units: {players[0]}" # first element of keyward argument players
+
+
+# Comma as a thousands separator
+'{:,}'.format(12345667)
+
+#percentage
+'{:.2%}'.foramt(fraction)
+
+#String to floats
+float(string)
+
+#string to int
+int(string)
+
+#lowercase the string
+string.lower(string)
+
+#split
+#String.split(demlim)
+a = '1 2 3 4 5'
+b = a.split(' ')
+b
+# ['1', '2', '3', '4', '5']
+
+#joining a string
+', '.join(b)
+#'1, 2, 3, 4, 5'
+
+#lstrip(s[, chars])
+#returns a string with leading characters removed. if chars is omitted whitespace are removed
+
+#rstrip(s[,chars])
+#returns a string with trailing characters removed. if chars is not provided whitesapce are removed
+
+#strip(s[, chars])
+#returns a copy of the string with leading and trailing characters removed, if chars is not provided, whitespace are removed.
+
+```
+
 ### Permutation
+```python
+from itertools import permutations
+perms = [''.join(p) for p in permutations('stack')]
+perms
+#all permutations of the string stack
+len(perms)
+#total amount of permutations
+
+len(set(perms))
+#total unique permutations
+
+```
+
 ### Combination
+``` python
+from itertools import combinations
+combo =[''.join(c) for c in combinations('stack',3)]
+combo
+#combinations of letters of the string stack with length 3
+len(combo)
+#length of the combinations
+
+```
+
 ### Regex
+simple regex
+```python
+import re
+
+regex = re.compile(pattern)
+result = regex.match(string)#whole string only
+
+result = regex.search(string)# anywhere in the string
+```
 
 ## Algorithms
 
@@ -396,6 +476,14 @@ def heapsort(iterable):
 
 
 ## Lambda
+```python
+g = lambda x: func(x)
+g(2)
+
+g2 = lambda x,y: func(x,y)
+g2(2)
+```
+
 ## del
 the del statement can also be used to remove slices from a list
 ```python
@@ -423,7 +511,18 @@ a = True if 'b' in c else False
 ## Copy
 
 ### Deep Copy
+```
+import copy
+b=[1,2,3]
+a = copy.copy(b)
+```
+
 ### Shallow Copy
+```
+import copy
+b=[1,2,3]
+a =  copy.deepcopy(b)
+```
 
 ## Built In Functions
 ###collections
@@ -440,3 +539,5 @@ a = True if 'b' in c else False
 ###Abstract Classes
 ###Staticmethod
 ###Classmethod
+###Mixins
+###Meta Classes
