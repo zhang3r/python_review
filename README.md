@@ -523,8 +523,9 @@ def dfs(graph,start, visited=None):
 	if visited is None:
 		visited=set()
 	visited.add(start)
-	for next in graph.neighbors(start)- visited:
-		def(graph, next, visited)
+	for next in graph.neighbors(start):
+		if next not in visited:
+			dfs(graph, next, visited)
 	return visited
 
 
@@ -542,7 +543,7 @@ def dfs_paths(graph, start, goal):
 
 list(dfs_paths(graph,start,end))
 
-# recursion
+# recursive path
 def dfs_paths(graph, start, goal, path=None):
 	if path is None:
 		path = [start]
@@ -552,6 +553,8 @@ def dfs_paths(graph, start, goal, path=None):
 		yield from dfs_paths(graph,next, goal,path+[next])
 ```
 ### Djkstra's
+
+
 ### A*
 
 ## Sorting
@@ -676,7 +679,7 @@ g2(2)
 ## del
 the del statement can also be used to remove slices from a list
 ```python
-a=[1,2,3,4,5,6]
+a = [1,2,3,4,5,6]
 del a[0]
 a
 #2,3,4,5,6
@@ -702,15 +705,15 @@ a = True if 'b' in c else False
 ### Shallow Copy
 ```python
 import copy
-b=[1,2,3]
+b = [1,2,3]
 a = copy.copy(b)
 ```
 
 ### Deep Copy
 ```python
 import copy
-b=[1,2,3]
-a =  copy.deepcopy(b)
+b = [1,2,3]
+a = copy.deepcopy(b)
 ```
 
 ## Built In Functions
