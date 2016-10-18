@@ -416,6 +416,8 @@ len(perms)
 len(set(perms))
 #total unique permutations
 
+#TODO recursive impl
+
 ```
 
 ### Combination
@@ -426,6 +428,8 @@ combo
 #combinations of letters of the string stack with length 3
 len(combo)
 #length of the combinations
+
+#TODO recursive impl
 
 ```
 
@@ -459,9 +463,74 @@ TODO
 ## Sorting
 
 ### Quick Sort
-### Merge Sort
-### Heap Sort
+Worst Case: O(n^2)
+Best Case: O(nlogn)
+Average Case: O(nlogn)
 
+worstcase space: O(n)
+
+```python
+
+def quicksort(arr, left, right):
+	mid_ptr = (left+right)//2
+	mid_value = arr[mid_ptr]
+	left_ptr = left
+	right_ptr = right
+	while left_ptr <= right_ptr:
+		while arr[left_ptr]<mid_value:
+			left_ptr = left_ptr + 1
+		while arr[right_ptr]>mid_value:
+			right_ptr = right_ptr - 1
+		if arr[left_ptr] > arr[right_ptr]:
+			temp = arr[left_ptr]
+			arr[left_ptr]= arr[right_ptr]
+			arr[right_ptr] = temp
+			left_ptr = left_ptr + 1
+			right_ptr = right_ptr - 1
+
+	if left_ptr < right:
+		quicksort(arr, left, mid_ptr-1)
+	if right_ptr > left:
+		quicksort(arr, mid_ptr+1, right)
+```
+### Merge Sort
+Worst Case: O(n log n)
+Avg Case: O(n log n)
+Best Case: O(n log n)
+
+```python
+
+def mergeSort(aList):
+	if len(aList) == 1:
+		return aList
+	mid = len(aList)//2
+	left = mergeSort(aList[:mid])
+	right = mergeSort(aList[mid:])
+
+	left_ptr, right_ptr, ptr = 0,0,0
+
+	while ptr < len(aList):
+		if left_ptr >= len(left):
+			aList[ptr] = right[right_ptr]
+			right_ptr = right_ptr + 1
+		elif right_ptr >= len(right):
+			aList[ptr] = left[left_ptr]
+			left_ptr = left_ptr + 1
+		elif left[left_ptr] < right[right_ptr]:
+			aList[ptr] = left[left_ptr]
+			left_ptr = left_ptr + 1
+		else:
+			aList[ptr] = right[right_ptr]
+			right_ptr = right_ptr + 1
+		ptr = ptr + 1
+	return aList
+
+```
+
+### Heap Sort
+Worst Case: O(n log n)
+Avg Case: O(n log n)
+Best Case: O(n log n)
 ```python
 from heapq import heapush
 from heapq import heappop
@@ -472,8 +541,34 @@ def heapsort(iterable):
 		heappush(h, value)
 	return [heappop(h) for i in range(len(h))]
 ```
-### Radix Sort
 
+### Radix Sort
+Worst Case O(maxLength n)
+```python
+def radixsort(aList):
+	RADIX =10
+	maxLength = False
+	tmp, placement = -1, 1
+	while not maxLength
+		maxLength=True
+		#initalize buckets
+		buckets = [list() for _ in range(RADIX)]
+
+		#split aList between list
+		for i in aList:
+			temp = i/placement
+			buckets[tmp%RADIX].append(i)
+			if maxLength and tmp >0:
+				maxLength = False
+		#empty list into aList array
+		a =0 
+		for b in range(RADIX):
+			buck=bucket[b]
+			for i in buck:
+			aList[a]=i
+			a+=1
+		placement *=RADIX
+```
 
 ## Lambda
 ```python
