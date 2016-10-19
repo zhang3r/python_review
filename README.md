@@ -781,13 +781,18 @@ class SubClass(MyClass, MyClass1, MyClass2):
 
 ```
 ###Diamond Problem
-TODO
+Python's diamond problem gets resolved from left to right
 
 ###Generators
 generators are created by using `yield` instead of `return`
 
 ###Abstract Classes
 Use NotImplementedError for methods to denote an Abstract Class
+```python
+class AbstractClass:
+	def some_method(self):
+		raise NotImplementedError
+```
 
 ###Python Decorators
 
@@ -817,10 +822,82 @@ just_some_function()
 ```
 
 ###Staticmethod
+a method that does not use the object it self
+
 using the `@staticmethod` decorator to create static methods
 
 ###Classmethod
+a method that is not bound to the object but to the class use classmethods as a factory method to generate the class and can also call static methods
+using the `@classmethod` decorator to create static methods
+
+```python
+def MyClass(object):
+	def __init__(self, name='myclass'):
+		self.name=name
+
+	@staticmethod
+	def static_method():
+		print('hello world')
+
+	@classmethod
+	def class_factory(cls):
+		cls.static_method()
+		return cls('myclass')
+```
 
 ###Mixins
+Create small reusable classes to inherit from to gain functionality
 
 ###Meta Classes
+using meta class to enforce subclass validation
+
+```python
+class meta(type):
+	def __new__(meta, name, bases, class_dicts):
+		#Do some work when creating the new object
+		return type.__new__(meta,name,bases,class_dict)
+
+class MyClass(object, metaclass=meta):
+	...
+	pass
+```
+
+###Descriptors
+Descriptors modify get set and delete
+
+example: using a Grade class to modify all grades
+```python
+class Grade(object):
+	def __init__(self):
+		#use weakKey since this is shared across different objects
+		self._values=WeakKeyDictionary()
+
+	def __get__(self, instance, instance_type):
+		if instance is None: return self
+		return self._values.get(isntance,0)
+
+	def __set__(self, instance, value):
+		self._values[instance]=value
+```
+
+###Python Object Class
+
+###Python getter and setters
+Use the property decorator
+
+```python
+class Temp:
+	def __init__(self, temperature=0):
+		self.temperatrue = temperature
+
+	@property
+	def temperature(self):
+		#getter
+		return self.temperature
+
+	@temperature.setter
+	def set_temperature(self, temperature):
+		if temperature >1000:
+			print('too hot!')
+		self.temperature = temperature
+```
