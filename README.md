@@ -392,7 +392,7 @@ Challenges
 ```python
 class PriorityQueue:
 	pq =[]
-	entry_jfinder={}
+	entry_finder={}
 	REMOVED=''
 	counter = itertools.count()
 
@@ -523,9 +523,16 @@ result = regex.search(string)# anywhere in the string
 
 ### Divide and Conquer
 
+### Backtracking
 
 ### Dynamic Programming
 Dynamic Programming saves previously computed answers so that the algorithm no longer have to recompute it again.
+
+DP solutions have a polynomial complextiy. 
+
+Constructing a DP solution
+1. find a state for which an optimal solution is found and with the help of which we can find the optimal solution for the next state.
+
 
 ####Top-Down
 
@@ -533,6 +540,10 @@ Dynamic Programming saves previously computed answers so that the algorithm no l
 
 ### Greedy Algorithm
 Greedy Algorithm always select the best choice available at the moment.
+
+Greedy Choice Property - from a local optimum we can reach a golobal optimum, without having to reconsider the decision already taken
+
+Optimal Substructure Property - the optimal solution to a problem can be determined for the optimal solution to its subproblems
 
 ### Recursion
 Recursion consists of a terminating step and a recursive step.
@@ -544,6 +555,11 @@ or
 a variable can be assigned to the results of a recursive step.
 
 note: each recursive step should be closer to the terminating statement than previous recursive steps.
+
+1. it handles a simple "base case" without using recursion
+2. avoid cycles
+3. each call of the function represents a compolete handling of the given task
+
 
 ## Graphs
 
