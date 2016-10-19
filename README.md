@@ -13,6 +13,7 @@ Python 3 review
 - [Del](#del)
 - [Ternary](#ternary)
 - [Copy](#copy)
+- [OOP](#oop)
 - [Built In Functions](#built-in-functions)
 - [Python Classes](#python-classes)
 
@@ -480,6 +481,10 @@ b
 ```
 
 ### Permutation
+Permutation without repetition - choosing k from n - n!/(n-k)!
+
+Permutation with repetition -  choosing k - n^k
+
 ```python
 from itertools import permutations
 perms = [''.join(p) for p in permutations('stack')]
@@ -496,6 +501,10 @@ len(set(perms))
 ```
 
 ### Combination
+Combinations without repetition - n!/(k!*(n-k)!)
+
+Combinations with repetition - choosing k - (n+k-1)!/(k!*(n-1)!)
+
 ``` python
 from itertools import combinations
 combo =[''.join(c) for c in combinations('stack',3)]
@@ -522,7 +531,13 @@ result = regex.search(string)# anywhere in the string
 ## Algorithms
 
 ### Divide and Conquer
+multi branched recursion. 
 
+* recursively breaking down a problem into 2 or more subproblems
+
+* in recursive implementation, need to make sure that there is sufficient memory.
+
+* possibly use stack to eliminate recursion.
 ### Backtracking
 
 ### Dynamic Programming
@@ -533,10 +548,13 @@ DP solutions have a polynomial complextiy.
 Constructing a DP solution
 1. find a state for which an optimal solution is found and with the help of which we can find the optimal solution for the next state.
 
+* ordering computations to avoid recalculation
 
 ####Top-Down
+* memorization - assume have already computed all subproblems
 
 ####Bottom-Up
+* Tabulation - each subproblem is made up of already computed smaller subproblems therefore larger subproblems is just a function of smaller subproblems.
 
 ### Greedy Algorithm
 Greedy Algorithm always select the best choice available at the moment.
@@ -853,6 +871,18 @@ import copy
 b = [1,2,3]
 a = copy.deepcopy(b)
 ```
+## OOP
+### Encapsulation
+* Binding code and Data togeter into a single unit
+
+### Inheritance
+* when one object acquires all the properties and behaviors of parent class
+
+### Polymorphism
+* one task is performed by different object instances different ways
+
+### Abstraction
+* hiding internal details and showing functionality
 
 ## Built In Functions
 ###collections
