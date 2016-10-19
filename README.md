@@ -86,6 +86,18 @@ arr.tolist()
 
 ```
 
+Average Case
+* Access O(1)
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
+Worst Case
+* Access O(1)
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
 ### List
 
 
@@ -142,6 +154,20 @@ b is a
 # >>> False
 
 ```
+
+Average Case
+* Access O(1)
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
+Worst Case
+* Access O(1)
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
+
 ### Stack
 
 python uses lists for stack impl
@@ -164,6 +190,17 @@ len(stack)
 not stack
 #false
 ```
+Average Case
+* Access O(n)
+* Search O(n)
+* Insert O(1)
+* Delete O(1)
+
+Worst Case
+* Access O(n)
+* Search O(n)
+* Insert O(1)
+* Delete O(1)
 
 ### Queue
 can use list as a queue however not efficient while appends and pops from end are fast insertion or pop form beginning is slow
@@ -188,6 +225,19 @@ queue.popleft()
 #inplace returns None
 queue.reverse()
 ```
+
+Average Case
+* Access O(n)
+* Search O(n)
+* Insert O(1)
+* Delete O(1)
+
+Worst Case
+* Access O(n)
+* Search O(n)
+* Insert O(1)
+* Delete O(1)
+
 ### Tuples
 A tuple consists of a number of values separated by commas
 
@@ -249,6 +299,18 @@ a^b
 
 ```
 
+Average Case
+* Access O(1)
+* Search O(1)
+* Insert O(1)
+* Delete O(1)
+
+Worst Case
+* Access O(n)
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
 ### Dictionary
 key value pair data storage
 
@@ -282,6 +344,19 @@ d = {'Trump':'Donald', 'Clinton','Hillary'}
 for k,v in d.items():
 	print(k,v)
 ```
+Average Case
+* Access 
+* Search O(1)
+* Insert O(1)
+* Delete O(1)
+
+Worst Case
+* Access 
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
+
 ### Heap
 
 to create a heap use a list initalized to [] or transform a populated list into a heap by using `heapify()`
@@ -487,6 +562,34 @@ class Node:
 >>> n.left = p
 >>> n.right = q
 ```
+Average
+* Search O(log n)
+* Insert O(log n)
+* Delete O(log n)
+
+Worst Case
+* Search O(n)
+* Insert O(n)
+* Delete O(n)
+
+
+### Tries
+A Trie is a tree used to store a dynamic set where the keys are usually strings, each node's position define the key. All children of a node have a common prefix.
+
+Root is always empty string
+
+* Look up is O(m) m is the length of string
+* No collisions
+
+### Tree Traversal
+#### Pre-Order
+Node, Left, Right
+
+#### In-Order
+Left, Node, Right
+
+#### Post-Order
+Left, Right, Node
 
 ### Breath First Search
 
