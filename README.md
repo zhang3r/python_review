@@ -885,7 +885,119 @@ a = copy.deepcopy(b)
 * hiding internal details and showing functionality
 
 ## Built In Functions
+
 ###collections
+
+#### namedtuple
+Named Tuples assign meaning to each position in a tuple and allow for more readable self-documenting code, adds the ability to access fields by name
+
+```python
+Point = namedtuple('Point',['x','y'])
+p = Point(11, y=22)
+x,y =p # unpacking
+p.x+p.y
+```
+#### deque
+generalization of stacks and queues
+
+O(1) appends and pops from either direction
+
+append(x)
+	- add x to the right of the deque
+
+appendleft(x)
+	- add x to the left of the deque
+
+clear()
+	- remove all elements from the deque leaving it with length 0
+
+copy()
+	- shallow copy
+
+count(x)
+	- count the number of deque elements equal to x
+
+extend(iterable)
+	- extend the right side of the deque by appending elements
+
+extendleft(iterable)
+	- extend the left side of the deque the series of left appends results in reverse order of the iterable elements
+
+index(x[, start[, stop]])
+	- returns the position of x in the deque, returns `ValueError` if not found
+
+insert(i,x)
+	- insert x into deque at position i
+
+pop()
+	- remove and return an elements from the right side of the deque, returns `IndexError` if there is no element
+
+popleft()
+	- remove and return an element from the left side of the deque
+
+remove(value)
+	- remove the first occurance of value, raise `ValueError` if not found
+
+reverse()
+	- inplace reverse the deque
+
+rotate(n)
+	- rotate the deque n steps to the right if n is negative, the left.
+
+maxlen
+	- max size or `None` if unbounded
+#### ChainMap
+
+Provides quickly linking anumber of mappings so they can be treated as a single unit.
+
+```python
+c = ChainMap()
+d = c.new_child()
+e = c.new_child()
+e.maps[0]
+e.maps[-1]
+
+d['x']=1
+
+```
+
+#### Counter
+support convenient and rapid tallies
+```python
+cnt = Counter()
+for word in ['red','blue, 'red','green','blue','blue']:
+	cnt[word] +=1
+cnt
+Counter({'blue':3, 'red':2,'green':1})
+
++cnt #shows only positive counts
+-cnt #shows only negative counts as positive count
+
+#Combining counters
+c+d # addition adding 2 counters together
+c-d # subtract (only keeps positive count)
+c&d # intersect
+c|d # union: max(c[x],d[x])
+```
+
+* `Counter` is a `dict` subclass for counting hashable objects.
+* unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values
+
+Methods
+- `elements()` - returns an iterator over the elements repeating each as many times as its count. ( returned in arbitrary order) (ignore count that is less than 1)
+
+- `most_common([n])` - returns a list of the n most common elements and their counts from the most common to the least
+
+- `update([iterator])
+
+#### orderedDict
+
+Ordered Dictionaries remember the order that the items were inserted.
+
+collections.OrderedDict([items])
+
+popitem(last = True)
+	- returns and removes a key value pair, the pairs are returned in a LIFO order if last is True FIFO if last is false
 ###itertools
 ###functools
 
