@@ -1000,6 +1000,14 @@ popitem(last = True)
 	- returns and removes a key value pair, the pairs are returned in a LIFO order if last is True FIFO if last is false
 ###itertools
 ###functools
+@functools.lru_cache
+- Decorator to wrap a function with a memoizing callable
+
+@functools.total_ordering
+given a class defining one or more rich comparison ordering methods
+
+* must define one of  `__lt__(), __le__(), __gt__() or __ge__()` in addition to `__eq__()`
+
 
 
 ##Python Classes
