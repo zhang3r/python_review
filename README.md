@@ -369,12 +369,12 @@ import heapq
 heap=[]
 
 #adding to heap
-heapq.heappush(heap, 1)
-heapq.heappush(heap, 2)
-heapq.heappush(heap, 3)
+heapq.heappush(heap, (1,'one'))
+heapq.heappush(heap, (2,'two'))
+heapq.heappush(heap, (3,'three'))
 
 #poping from heap
-heapq.heappop(heap)
+priority, task = heapq.heappop(heap)
 #1
 
 #heap replace
