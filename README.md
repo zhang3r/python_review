@@ -16,6 +16,7 @@ Python 3 review
 - [OOP](#oop)
 - [Built In Functions](#built-in-functions)
 - [Python Classes](#python-classes)
+- [Sort Overriding](#sort-overriding)
 
 
 =======================
@@ -456,7 +457,10 @@ float(string)
 int(string)
 
 #lowercase the string
-string.lower(string)
+string.lower()
+
+#uppercase the string
+string.upper()
 
 #split
 #String.split(demlim)
@@ -477,6 +481,11 @@ b
 
 #strip(s[, chars])
 #returns a copy of the string with leading and trailing characters removed, if chars is not provided, whitespace are removed.
+
+
+# replacing a string
+a = 'hello world'
+a.replace('world','')
 
 ```
 
@@ -1169,4 +1178,32 @@ class Temp:
 		if temperature >1000:
 			print('too hot!')
 		self.temperature = temperature
+```
+
+## Sort Overriding
+using key functions to specify a function to be called to make comparisons
+
+value of the key parameter should be a function 
+
+```python
+sorted("This is a test".split(), key =str.lower)
+
+# sort complex objects using indicies
+sorted([(1,2),(3,4)], key =lambda x: x[2])
+
+# Ascending and Descending
+sorted([1,2,3,4,5,2], reverse=True)
+
+#secondary sort
+sorted(list1, key= lambda x:(x[1], x[2]))
+
+#using operator
+from operator import itemgetter, attrgetter
+student_objects =[Student('joh','a','15'), Student('bob','r','10'),Student('deed','g','8')]
+
+student_tuples = [ ('j', 'c',10),('d','e',1)]
+
+sorted(student_tuples, key=itemgetter(1,2))
+sorted(student_objects, key=attrgetter('grade','age'))
+
 ```
