@@ -993,7 +993,7 @@ d['x']=1
 support convenient and rapid tallies
 ```python
 cnt = Counter()
-for word in ['red','blue, 'red','green','blue','blue']:
+for word in ['red','blue', 'red','green','blue','blue']:
 	cnt[word] +=1
 cnt
 Counter({'blue':3, 'red':2,'green':1})
