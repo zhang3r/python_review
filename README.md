@@ -487,6 +487,25 @@ b
 a = 'hello world'
 a.replace('world','')
 
+# casefolded, use for caseless matching
+a.casefold()
+
+# endswith - returns true if the string has the suffix
+a.endswith('abc')
+
+# find returns the lowerst index in the string where substring is whin the the optional slice, returns -1 if not found
+a.find('abc',1,2)
+
+# index - like find but returns ValueError if not found
+a.index('abc')
+
+# type check
+a.isalpha() # true is all characters in string are alphabetic
+a.isdecimal()
+a.isdigit()
+a.islower()
+a.isnumeric()
+a.isspace()
 ```
 
 ### Permutation
