@@ -17,7 +17,7 @@ Python 3 review
 - [Built In Functions](#built-in-functions)
 - [Python Classes](#python-classes)
 - [Sort Overriding](#sort-overriding)
-
+- [Exception Handeling](#exception-handling)
 
 =======================
 
@@ -1225,4 +1225,23 @@ student_tuples = [ ('j', 'c',10),('d','e',1)]
 sorted(student_tuples, key=itemgetter(1,2))
 sorted(student_objects, key=attrgetter('grade','age'))
 
+```
+
+
+## Exception Handling
+
+### try/except/else/finally
+
+### finally
+use `finally` when you want exceptions to propagate up, but also want to run cleanup code
+
+### else
+use `else` to make it clear which exceptions will be handled.
+
+### custom excepts
+```python
+class MyException(Exception):
+	pass
+
+raise MyException('message')
 ```
