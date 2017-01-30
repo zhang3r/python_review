@@ -608,6 +608,7 @@ usually implementated by using recursion. Selecting a base case and identifying 
 * need to make sure there is enough memory for recursive solution
 
 * may use stack to eliminate recursion
+
 #### Big O
 using master theorem
 
