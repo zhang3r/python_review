@@ -4,6 +4,7 @@ Python 3 review
 #Table of Content
 
 - [Data Structures](#data-structures)
+- [Comprehension](#comprehension)
 - [Looping](#looping)
 - [Strings](#strings)
 - [Algorithms](#algorithms)
@@ -419,6 +420,25 @@ class PriorityQueue:
 		raise KeyError('pop from an empty priority queue')
 
 ```
+## Comprehension
+
+comprehension composes of a statement and a for loop
+```python
+S = [x**2 for x in range(10)]
+```
+
+comprehension can also include an if statement
+
+```python
+S = [x**2 for x in range(10) if x%2 == 1]
+```
+The following data structures with comprehension
+
+1. List
+2. Set
+3. Dictionary
+4. Tuple
+
 ## Looping
 
 looping through a sequece position index and value can be retrieved at the same time using `enumerate()` function
