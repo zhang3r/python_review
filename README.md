@@ -582,14 +582,67 @@ result = regex.search(string)# anywhere in the string
 
 ## Algorithms
 
+1. explain of technique
+2. identify problems, ie. how to identify this algorithmic problem
+3. implementation tips
+4. big O
+
+O = upperbound
+theta = tight bound
+Omega = lowerbound
+
 ### Divide and Conquer
 multi branched recursion. 
+#### Description
 
-* recursively breaking down a problem into 2 or more subproblems
+1. recursively break down a probelm into subproblems until these become simple enough to solve
+2. solution of sub problems are then combined to give a solution to the original problem.
 
-* in recursive implementation, need to make sure that there is sufficient memory.
+#### Identification
 
-* possibly use stack to eliminate recursion.
+#### Implmentation
+usually implementated by using recursion. Selecting a base case and identifying a mapping pahse and a reduce phase. There is also the need to cache shared subproblems to ensure there's no recomputation.
+
+* need to make sure there is enough memory for recursive solution
+
+* may use stack to eliminate recursion
+#### Big O
+using master theorem
+
+```
+T(n) = a T(n/b)+f(n)
+```
+* n is the size of the problem
+* a is the number of subproblems in the recursion
+* n/b is the size of each subproblem
+* f(n)is the cost of the work done outside of the recursive calls, which includes the cost of dividing the problem and the cost of merging the solutions to the subproblems
+* c is the power in f(n)
+
+Case 1.
+
+```
+if f(n) = O(n^c) where c< logb(a)
+```
+then
+
+```
+T(n)=O(n^logb(a))
+```
+Case 2.
+```
+if f(n) = O(n^c log^k n) where c = logb(a)
+```
+then
+```
+T(n)= O(n^c log^(k+1) n)
+```
+Case 3.
+```
+if f(n)= Omega(n^c) where c>logb(a)
+```
+then
+```
+T(n)=O(f(n))
 ### Backtracking
 
 ### Dynamic Programming
