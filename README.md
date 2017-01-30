@@ -588,7 +588,9 @@ result = regex.search(string)# anywhere in the string
 4. big O
 
 O = upperbound
+
 theta = tight bound
+
 Omega = lowerbound
 
 ### Divide and Conquer
@@ -643,6 +645,7 @@ if f(n)= Omega(n^c) where c>logb(a)
 then
 ```
 T(n)=O(f(n))
+```
 ### Backtracking
 
 ### Dynamic Programming
