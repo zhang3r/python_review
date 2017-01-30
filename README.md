@@ -133,7 +133,7 @@ a.pop()
 a.clear()
 
 #index
-returns the index in the list of the first item of value, error if there's no such item
+#returns the index in the list of the first item of value, error if there's no such item
 a.index(1)
 # >>> ValueError: 1 is not in list
 
@@ -435,9 +435,13 @@ S = [x**2 for x in range(10) if x%2 == 1]
 The following data structures with comprehension
 
 1. List
+    - [x**2 for x in list]
 2. Set
+    - {x**2 for x in list}
 3. Dictionary
-4. Tuple
+    - {k:v for k,v in zip(list1, list2)}
+4. Generator
+    - (i for i in list)
 
 ## Looping
 
