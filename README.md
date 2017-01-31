@@ -662,6 +662,15 @@ Constructing a DP solution
 ####Top-Down
 * memorization - assume have already computed all subproblems
 
+```python
+from functools import lru_cache
+
+@lru_cache
+def fib(n):
+    if n<2:
+        return n
+    return fib(n-1)+fib(n-2)
+```
 ####Bottom-Up
 * Tabulation - each subproblem is made up of already computed smaller subproblems therefore larger subproblems is just a function of smaller subproblems.
 
