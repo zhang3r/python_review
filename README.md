@@ -655,7 +655,8 @@ Dynamic Programming saves previously computed answers so that the algorithm no l
 DP solutions have a polynomial complextiy. 
 
 Constructing a DP solution
-1. find a state for which an optimal solution is found and with the help of which we can find the optimal solution for the next state.
+
+* find a state for which an optimal solution is found and with the help of which we can find the optimal solution for the next state.
 
 * ordering computations to avoid recalculation
 
